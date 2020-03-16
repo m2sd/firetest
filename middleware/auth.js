@@ -1,3 +1,5 @@
 export default function({ store, redirect }) {
-  console.dir(store)
+  console.log('----AUTH MIDDLEWARE START----')
+  console.dir(store.authUser)
+  console.log('----AUTH MIDDLEWARE END----')
 }

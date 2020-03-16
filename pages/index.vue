@@ -7,6 +7,7 @@
       </div>
       <v-card>
         <v-card-title class="headline">
+          {{ $store.authUser || 'NONE' }}
           Welcome to the Vuetify + Nuxt.js template
         </v-card-title>
         <v-card-text>
@@ -72,17 +73,8 @@ export default {
     Logo,
     VuetifyLogo
   },
-  fetch() {
-    this.$fireAuth
-      .auth()
-      .signInAnonymously()
-      .catch(function(error) {
-        throw error
-        // Handle Errors here.
-        // var errorCode = error.code
-        // var errorMessage = error.message
-        // ...
-      })
+  async asyncData({ store, app }) {
+    if (!store.authUser) await app.$fireAuth.signInAnonymously()
   }
 }
 </script>

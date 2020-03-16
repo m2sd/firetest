@@ -62,8 +62,8 @@ export default {
       auth: {
         static: true,
         initialize: {
-          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION'
-          // onAuthStateChangedAction: 'onAuthStateChangedAction'
+          onAuthStateChangedAction: 'onAuthStateChangedAction'
+          // onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION'
         },
         ssr: true
       },
@@ -79,7 +79,7 @@ export default {
     icon: false,
     workbox: {
       importScripts: ['/firebase-auth-sw.js'],
-      dev: false
+      dev: true
     }
   },
   /*
