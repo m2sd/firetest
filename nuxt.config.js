@@ -47,8 +47,43 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/firebase'
   ],
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyDq5FhDTdWUjAB3lLtPAScou9b7Neui9zI',
+      authDomain: 'firetest-d14b0.firebaseapp.com',
+      databaseURL: 'https://firetest-d14b0.firebaseio.com',
+      projectId: 'firetest-d14b0',
+      storageBucket: 'firetest-d14b0.appspot.com',
+      messagingSenderId: '640718029289',
+      appId: '1:640718029289:web:6344d9db687d5841ac4b78'
+    },
+    services: {
+      auth: {
+        static: true,
+        initialize: {
+          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION'
+          // onAuthStateChangedAction: 'onAuthStateChangedAction'
+        },
+        ssr: true
+      },
+      firestore: {
+        static: true,
+        enablePersistence: true,
+        synchronizeTabs: true
+      }
+    }
+  },
+  pwa: {
+    meta: false,
+    icon: false,
+    workbox: {
+      importScripts: ['/firebase-auth-sw.js'],
+      dev: false
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
