@@ -71,6 +71,18 @@ export default {
   components: {
     Logo,
     VuetifyLogo
+  },
+  fetch() {
+    this.$fireAuth
+      .auth()
+      .signInAnonymously()
+      .catch(function(error) {
+        throw error
+        // Handle Errors here.
+        // var errorCode = error.code
+        // var errorMessage = error.message
+        // ...
+      })
   }
 }
 </script>
