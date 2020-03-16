@@ -79,7 +79,7 @@ export default {
     icon: false,
     workbox: {
       importScripts: ['/firebase-auth-sw.js'],
-      dev: true
+      dev: false
     }
   },
   /*
