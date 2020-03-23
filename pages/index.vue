@@ -73,7 +73,7 @@ export default {
     Logo,
     VuetifyLogo
   },
-  async asyncData({ store, app }) {
+  async mounted({ store, app }) {
     if (!store.authUser) await app.$fireAuth.signInAnonymously()
   }
 }

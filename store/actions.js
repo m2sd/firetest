@@ -4,6 +4,8 @@ export default {
     if (res && res.locals && res.locals.user) {
       const { allClaims: claims, ...authUser } = res.locals.user
 
+      console.log('server init action')
+
       await dispatch('onAuthStateChangedAction', {
         authUser,
         claims

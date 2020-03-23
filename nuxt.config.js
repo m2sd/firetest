@@ -69,8 +69,9 @@ export default {
       },
       firestore: {
         static: true,
-        enablePersistence: true,
-        synchronizeTabs: true
+        enablePersistence: {
+          synchronizeTabs: true
+        }
       }
     }
   },
@@ -101,6 +102,14 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, { isServer }) {
+      if (isServer) {
+        config.externals = {
+          '@firebase/app': 'commonjs @firebase/app',
+          '@firebase/auth': 'commonjs @firebase/auth',
+          '@firebase/firestore': 'commonjs @firebase/firestore'
+        }
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 export default {
   DELETE_USER(state) {
+    console.log('DELETE_USER_MUTATION')
     state.authUser = null
   },
   SET_USER(state, { authUser, claims }) {
